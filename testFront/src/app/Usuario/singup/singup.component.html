@@ -1,0 +1,223 @@
+<div class="container ">
+    <div class="card">
+        <div class="card-header d-flex justify-content-center">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <h4>Crear Cuenta</h4>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="Guardar()" #formUsuario="ngForm">
+
+                <div class="form-group">
+                    <label>Cedula</label>
+                    <input type="number" class="form-control" [(ngModel)]="usuario.cedula" name="cedula" required
+                        #cedula="ngModel" pattern="([0-9]{8,11})" placeholder="Digite su cedula">
+                    <div class="alert alert-danger" *ngIf="cedula.invalid && (cedula.dirty || cedula.touched)">
+                        <div *ngIf="cedula.errors?.['required']">
+                            Digite su cedula por favor.
+                        </div>
+                        <div *ngIf="cedula.errors?.['pattern']">
+                            La cedula tiene que contener como minimo 8 numeros enteros.
+                        </div>
+                        <div *ngIf="cedula.errors?.['pattern']">
+                            La cedula tiene que tener como maximo 11 numeros enteros.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Nombre De Usuario</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.username" name="username" required
+                        #username="ngModel" minlength="4" maxlength="20" placeholder="Digite un nombre de usuario">
+                    <div class="alert alert-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
+                        <div *ngIf="username.errors?.['required']">
+                            Digite un nombre de usuario por favor
+                        </div>
+                        <div *ngIf="username.errors?.['minlength']">
+                            El nombre de usuario debe contener como minimo 4 caracteres
+                        </div>
+                        <div *ngIf="username.errors?.['maxlength']">
+                            El nombre de usuario debe contener como minimo 20 caracteres
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Primer Nombre</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.primerNombre" name="primerNombre"
+                        required minlength="4" maxlength="12" placeholder="Digite su primer nombre"
+                        #primerNombre="ngModel">
+                    <div class="alert alert-danger"
+                        *ngIf="primerNombre.invalid && (primerNombre.dirty || primerNombre.touched)">
+                        <div *ngIf="primerNombre.errors?.['required']">
+                            Digite su primer nombre por favor
+                        </div>
+                        <div *ngIf="primerNombre.errors?.['minlength']">
+                            El primer nombre tiene que contener como minimo 4 caracteres
+                        </div>
+                        <div *ngIf="primerNombre.errors?.['maxlength']">
+                            El primer nombre tiene que tener como maximo 12 caracteres
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Segundo Nombre</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.segundoNombre" name="segundoNombre"
+                        minlength="4" maxlength="12" placeholder="Si tiene segundo nombre digitelo"
+                        #segundoNombre="ngModel">
+                    <div class="alert alert-danger"
+                        *ngIf="segundoNombre.invalid && (segundoNombre.dirty || segundoNombre.touched)">
+                        <div *ngIf="segundoNombre.errors?.['minlength']">
+                            El segundo nombre tiene que contener como minimo 4 caracteres
+                        </div>
+                        <div *ngIf="segundoNombre.errors?.['maxlength']">
+                            El segundo nombre tiene que tener como maximo 12 caracteres
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Primer Apellido</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.primerApellido" name="primerApellido"
+                        required minlength="4" maxlength="12" placeholder="Digite su primer apellido"
+                        #primerApellido="ngModel">
+                    <div class="alert alert-danger"
+                        *ngIf="primerApellido.invalid && (primerApellido.dirty || primerApellido.touched)">
+                        <div *ngIf="primerApellido.errors?.['required']">
+                            Digite su primer apellido por favor
+                        </div>
+                        <div *ngIf="primerApellido.errors?.['minlength']">
+                            El primer apellido tiene que contener como minimo 4 caracteres
+                        </div>
+                        <div *ngIf="primerApellido.errors?.['maxlength']">
+                            El primer apellido tiene que tener como maximo 12 caracteres
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Segundo Apellido</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.segundoApellido" name="segundoApellido"
+                        required minlength="4" maxlength="12" placeholder="Digite su segundo apellido"
+                        #segundoApellido="ngModel">
+                    <div class="alert alert-danger"
+                        *ngIf="segundoApellido.invalid && (segundoApellido.dirty || segundoApellido.touched)">
+                        <div *ngIf="segundoApellido.errors?.['required']">
+                            Digite su segundo apellido por favor
+                        </div>
+                        <div *ngIf="segundoApellido.errors?.['minlength']">
+                            El segundo apellido tiene que contener como minimo 4 caracteres
+                        </div>
+                        <div *ngIf="segundoApellido.errors?.['maxlength']">
+                            El segundo apellido tiene que tener como maximo 10 caracteres
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Clave</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.clave" name="clave" required
+                        #clave="ngModel" minlength="8" placeholder="Digite su clave"
+                        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}">
+                    <div class="alert alert-danger" *ngIf="clave.invalid && (clave.dirty || clave.touched)">
+                        <div *ngIf="clave.errors?.['required']">
+                            La clave tiene que contener:
+                            - como minimo 8 caracteres.
+                            - almenos una letra minuscula.
+                            - almenos una letra mayuscula.
+                            - almenos un numero.
+                            - almenos un caracter especial.
+                        </div>
+                        <div *ngIf="clave.errors?.['minlength']">
+                            La clave tiene que contener:
+                            - como minimo 8 caracteres.
+                            - almenos una letra minuscula.
+                            - almenos una letra mayuscula.
+                            - almenos un numero.
+                            - almenos un caracter especial.
+                        </div>
+                        <div *ngIf="clave.errors?.['pattern']">
+                            La clave tiene que contener:
+                            - como minimo 8 caracteres.
+                            - almenos una letra minuscula.
+                            - almenos una letra mayuscula.
+                            - almenos un numero.
+                            - almenos un caracter especial.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.email" name="email" required
+                        #email="ngModel"
+                        pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                        placeholder="Digite su email">
+                    <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div *ngIf="email.errors?.['required']">
+                            Digite su email por favor
+                        </div>
+                        <div *ngIf="email.errors?.['pattern']">
+                            Por favor digite el email con el siguiente formato : user100@gmail.com
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Escoger empresa</label>
+                    <div>
+                        <select id="selEmpresa" [(ngModel)]="usuario.nitEmpresa" name="nitEmpresa" required
+                            #nitEmpresa="ngModel">
+                            <option value="1234567890"> Estrategias Empresariales</option>
+                            <option value="900900450"> Comercializadora de servicios del Atlántico</option>
+                            <option value="800800375"> Red de Servicios del Cauca</option>
+                        </select>
+                    </div>
+                    <div class="alert alert-danger"
+                        *ngIf="nitEmpresa.invalid && (nitEmpresa.dirty || nitEmpresa.touched)">
+                        <div *ngIf="nitEmpresa.errors?.['required']">
+                            Seleccione la empresa
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Escoger rol</label>
+                    <div>
+                        <select id="selRol" [(ngModel)]="usuario.rol" name="rol" required #rol="ngModel">
+                            <option value="1">adminsys</option>
+                            <option value="2">asistente</option>
+                            <option value="3">operaciones</option>
+                            <option value="4">coordinador</option>
+                            <option value="5">jefe</option>
+                            <option value="6">director</option>
+                            <option value="7">gerente</option>
+                        </select>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="rol.invalid && (rol.dirty || rol.touched)">
+                        <div *ngIf="rol.errors?.['required']">
+                            Seleccione su rol
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Escoger estado</label>
+                    <div>
+                        <select id="selEstado" [(ngModel)]="usuario.estado" name="estado" required #estado="ngModel">
+                            <option value="0">Inactivo</option>
+                            <option value="1">Activo</option>
+                        </select>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="estado.invalid && (estado.dirty || estado.touched)">
+                        <div *ngIf="estado.errors?.['required']">
+                            Seleccione el estado de usuario
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success" [disabled]="!formUsuario.form.valid">Registrarse</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+</div>

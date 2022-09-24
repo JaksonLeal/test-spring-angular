@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<title>prueba tecnica - Registrar</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<div>
+		<h1>Registrarse</h1>
+	</div>
+	<div>
+		<form>
+			<div>
+				<input type="text" id="txtCedula" placeholder="Cedula">
+			</div>
+			<div>
+				<input type="text" id="txtPrimerNombre" placeholder="Primer Nombre">
+			</div>
+			<div>
+				<input type="text" id="txtSegundoNombre"
+					placeholder="Segundo Nombre">
+			</div>
+			<div>
+				<input type="text" id="txtPrimerApellido"
+					placeholder="Primer Apellido">
+			</div>
+			<div>
+				<input type="text" id="txtSegundoApellido"
+					placeholder="Segundo Apellido">
+			</div>
+			<div>
+				<input type="text" id="txtClave" placeholder="Clave">
+			</div>
+			<div>
+				<input type="text" id="txtEmail" placeholder="Email">
+			</div>
+
+			<div>
+				<label>Escoger empresa:</label> <select id="selEmpresa">
+					<option value="1234567890">Estrategias Empresariales</option>
+					<option value="900900450">Comercializadora de servicios
+						del Atlántico</option>
+					<option value="800800375">Red de Servicios del Cauca</option>
+				</select>
+			</div>
+
+			<div>
+				<label>Escoger rol:</label> <select id="selRol">
+					<option value="1">adminsys</option>
+					<option value="2">asistente</option>
+					<option value="3">operaciones</option>
+					<option value="4">coordinador</option>
+					<option value="5">jefe</option>
+					<option value="6">director</option>
+					<option value="7">gerente</option>
+				</select>
+			</div>
+
+			<div>
+				<label>Escoger estado:</label> <select id="selEstado">
+					<option value="0">Inactivo</option>
+					<option value="1">Activo</option>
+				</select>
+			</div>
+			<a onclick="registrarUsuario()" href="#">Registrarse</a>
+		</form>
+	</div>
+
+	<hr>
+
+	<div>
+		<h1>listar, eliminar y actualizar</h1>
+	</div>
+	<div>
+		<table id="tablaUsuarios" style="border-spacing: 10px; width: 100%">
+			<thead>
+				<tr>
+					<th>CEDULA</th>
+					<th>PRIMER NOMBRE</th>
+					<th>SEGUNDO NOMBRE</th>
+					<th>PRIMER APELLIDO</th>
+					<th>SEGUNDO APELLIDO</th>
+					<th>CLAVE</th>
+					<th>EMAIL</th>
+					<th>NIT EMPRESA</th>
+					<th>ROL</th>
+					<th>ESTADO</th>
+					<th>ACCIONES</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
+
+	<div id="divActualizar" style="display: none">
+		<label>actualizar usuario por cedula </label> <label id="usuAct"></label>
+		<form>
+
+			<div>
+				<input type="text" id="txtPrimerNombreAct"
+					placeholder="Primer Nombre">
+			</div>
+			<div>
+				<input type="text" id="txtSegundoNombreAct"
+					placeholder="Segundo Nombre">
+			</div>
+			<div>
+				<input type="text" id="txtPrimerApellidoAct"
+					placeholder="Primer Apellido">
+			</div>
+			<div>
+				<input type="text" id="txtSegundoApellidoAct"
+					placeholder="Segundo Apellido">
+			</div>
+			<div>
+				<input type="text" id="txtClaveAct" placeholder="Clave">
+			</div>
+			<div>
+				<input type="text" id="txtEmailAct" placeholder="Email">
+			</div>
+
+			<div>
+				<label>Escoger empresa:</label> <select id="selEmpresaAct">
+					<option value="1234567890">Estrategias Empresariales</option>
+					<option value="900900450">Comercializadora de servicios
+						del Atlántico</option>
+					<option value="800800375">Red de Servicios del Cauca</option>
+				</select>
+			</div>
+
+			<div>
+				<label>Escoger rol:</label> <select id="selRolAct">
+					<option value="1">adminsys</option>
+					<option value="2">asistente</option>
+					<option value="3">operaciones</option>
+					<option value="4">coordinador</option>
+					<option value="5">jefe</option>
+					<option value="6">director</option>
+					<option value="7">gerente</option>
+				</select>
+			</div>
+
+			<div>
+				<label>Escoger estado:</label> <select id="selEstadoAct">
+					<option value="0">Inactivo</option>
+					<option value="1">Activo</option>
+				</select>
+			</div>
+			<a onclick="editarUsuario()" href="#">ACTUALIZAR</a>
+		</form>
+
+	</div>
+
+	<hr>
+	<div>
+		<h1>buscar por cedula</h1>
+	</div>
+	<div>
+		<button onclick="buscar()">BUSCAR</button>
+		<input type="text" id="txtBuscar" placeholder="Buscar por cedula">
+	</div>
+	<div id="resBus"></div>
+
+	<script src="js/usuario.js"></script>
+
+</body>
+
+</html>

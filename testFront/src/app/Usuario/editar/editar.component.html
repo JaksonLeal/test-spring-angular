@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3 id="usuCed">Actualizar Usuario</h3>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <label for="">Cedula</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.cedula" name="cedula">
+                </div>
+                <div class="form-group">
+                    <label for="">Nombre De Usuario</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="">Primer Nombre</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.primerNombre" name="primerNombre">
+                </div>
+                <div class="form-group">
+                    <label for="">Segundo Nombre</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.segundoNombre" name="segundoNombre">
+                </div>
+                <div class="form-group">
+                    <label for="">Primer Apellido</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.primerApellido" name="primerApellido">
+                </div>
+                <div class="form-group">
+                    <label for="">Segundo Apellido</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.segundoApellido"
+                        name="segundoApellido">
+                </div>
+                <div class="form-group">
+                    <label for="">Clave</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.clave" name="clave">
+                </div>
+                <div class="form-group">
+                    <label for="">email</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.email" name="email">
+                </div>
+                <div class="form-group">
+                    <label>Escoger empresa:</label>
+                    <select id="selEmpresa" [(ngModel)]="usuario.nitEmpresa" name="nitEmpresa">
+                        <option value="1234567890"> Estrategias Empresariales</option>
+                        <option value="900900450"> Comercializadora de servicios del Atlántico</option>
+                        <option value="800800375"> Red de Servicios del Cauca</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Escoger rol:</label>
+                    <select id="selRol" [(ngModel)]="usuario.rol" name="rol">
+                        <option value="1">adminsys</option>
+                        <option value="2">asistente</option>
+                        <option value="3">operaciones</option>
+                        <option value="4">coordinador</option>
+                        <option value="5">jefe</option>
+                        <option value="6">director</option>
+                        <option value="7">gerente</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Escoger estado:</label>
+                    <select id="selEstado" [(ngModel)]="usuario.estado" name="estado">
+                        <option value="0">Inactivo</option>
+                        <option value="1">Activo</option>
+                    </select>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+    <br>
+    <button (click)="Actualizar()" class="btn btn-success">Guardar</button>
+</div>
+<br>

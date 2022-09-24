@@ -1,0 +1,11 @@
+<div class="container text-center">
+    <div *ngIf="isLogged; else loggedOut">
+        <h2>Welcome {{user.username}} to {{title}} in spring and angular </h2>
+        <div style="text-align:center">
+            <img width="400" alt="Logo" src="https://accelatest.com/wp-content/uploads/2022/02/CRUD-Operations-1024x536.png">
+        </div>
+    </div>
+    <ng-template #loggedOut>
+        <h2>No has iniciado sesión</h2>
+    </ng-template>
+</div>

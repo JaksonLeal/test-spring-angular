@@ -1,0 +1,38 @@
+<div class="text-center" *ngIf="isLoggedIn; else loggedOut">
+    <h2>Ya has iniciado sesión</h2>
+</div>
+
+<ng-template #loggedOut>
+    <div class="container d-flex justify-content-center">
+        <div class="card">
+            <div class="card-header d-flex justify-content-center">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <h4>Iniciar Sesión</h4>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body ">
+                <form #formLogin="ngForm" (ngSubmit)="formSubmit()" novalidate>
+                    <div class="form-group">
+                        <label for="email">Email de Usuario</label>
+                        <input type="text" name="email" id="email" class="form-control" placeholder="Digite su email"
+                            [(ngModel)]="loginData.email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clave">Contraseña</label>
+                        <input type="password" name="clave" id="clave" class="form-control"
+                            [(ngModel)]="loginData.clave" placeholder="Digite su clave" required>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-block" [disabled]="!formLogin.valid">
+                            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+                    </div>
+                </form>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a class="" routerLink="/singup">Registrate Con Nosotros</a> 
+            </div>
+        </div>
+    </div>
+</ng-template>

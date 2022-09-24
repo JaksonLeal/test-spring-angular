@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="card" style="width:auto">
+        <div class="card-header">
+            <h3>Buscar Usuario Por Cedula</h3>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label>Cedula</label>
+                <input type="number" class="form-control" #cedula
+                    placeholder="Ingrese la cedula del usuario que desea buscar">
+                <button (click)="Buscar(cedula.valueAsNumber)" class="btn btn-info"
+                    style="margin-top: 10px">BUSCAR</button>
+            </div>
+            <hr>
+            <table id="tablaResultado" class="table table-hover">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>CEDULA</th>
+                        <th>NOMBRE USUARIO</th>
+                        <th>PRIMER NOMBRE</th>
+                        <th>SEGUNDO NOMBRE</th>
+                        <th>PRIMER APELLIDO</th>
+                        <th>SEGUNDO APELLIDO</th>
+                        <th>EMAIL</th>
+                        <th>NIT EMPRESA</th>
+                        <th>ROL</th>
+                        <th>ESTADO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td>{{usuarioRes.cedula}}</td>
+                        <td>{{usuarioRes.username}}</td>
+                        <td>{{usuarioRes.primerNombre}}</td>
+                        <td>{{usuarioRes.segundoNombre}}</td>
+                        <td>{{usuarioRes.primerApellido}}</td>
+                        <td>{{usuarioRes.segundoApellido}}</td>
+                        <td>{{usuarioRes.email}}</td>
+                        <td>{{usuarioRes.nitEmpresa}}</td>
+                        <td>{{Rol(usuarioRes.rol)}}</td>
+                        <td>{{Estado(usuarioRes.estado)}}</td>
+                        <td *ngIf="usuarioRes.cedula !== undefined">
+                            <button (click)="Editar(usuarioRes)" class="btn btn-warning btn-sm"
+                                style="width:50px">EDIT</button>
+                            <button (click)="Eliminar(usuarioRes)" class="btn btn-danger btn-sm"
+                                style="width:50px">DEL</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

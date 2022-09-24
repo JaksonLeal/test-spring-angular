@@ -1,0 +1,44 @@
+<div class="container-fluid" >
+    <div class="card" style="width:auto">
+        <div class="card-header" >
+            <h3>usuarios</h3>
+        </div>
+        <div class="card-body" >
+            <table class="table table-striped" >
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>CEDULA</th>
+                        <th>NOMBRE USUARIO</th>
+                        <th>PRIMER NOMBRE</th>
+                        <th>SEGUNDO NOMBRE</th>
+                        <th>PRIMER APELLIDO</th>
+                        <th>SEGUNDO APELLIDO</th>
+                        <th>EMAIL</th>
+                        <th>NIT EMPRESA</th>
+                        <th>ROL</th>
+                        <th>ESTADO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of usuarios" class="text-center">
+                        <td>{{usuario.cedula}}</td>
+                        <td>{{usuario.username}}</td>
+                        <td>{{usuario.primerNombre}}</td>
+                        <td>{{usuario.segundoNombre}}</td>
+                        <td>{{usuario.primerApellido}}</td>
+                        <td>{{usuario.segundoApellido}}</td>
+                        <td>{{usuario.email}}</td>
+                        <td>{{usuario.nitEmpresa}}</td>          
+                        <td>{{Rol(usuario.rol)}}</td>
+                        <td>{{usuario.estado == 1 ? 'activo' : 'inactivo'}}</td>
+                        <td>
+                            <button (click)="Editar(usuario)" class="btn btn-warning btn-sm" style="width:50px">EDIT</button>
+                            <button (click)="Eliminar(usuario)" class="btn btn-danger btn-sm" style="width:50px">DEL</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

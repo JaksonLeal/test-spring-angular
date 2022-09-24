@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a class="nav-link" routerLink="/login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión </a>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a class="nav-link" routerLink="/singup"><i class="fas fa-sign-in-alt"></i> Registrarse </a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link" routerLink="/listar" style="cursor: pointer"><i class="fas fa-door-open"></i> Lista de Usuarios </a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link" routerLink="/buscar" style="cursor: pointer"><i class="fas fa-door-open"></i> Buscar </a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn" (click)="logout()">
+        <a class="nav-link" routerLink="/" style="cursor: pointer;"><i class="fas fa-door-open"></i> Cerrar Sesión </a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn" > 
+        <a *ngIf="isLoggedIn && user" class="nav-link" style="cursor: pointer"><i class="fas fa-door-open"></i>
+          {{user.username }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
