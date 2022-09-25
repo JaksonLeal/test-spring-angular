@@ -17,7 +17,6 @@
 
 ---
 ## start
-
 ---
 
 1. En tu gestor de base de datos deberas ejecutar el siguiente comando, yo use mySQL workbench:
