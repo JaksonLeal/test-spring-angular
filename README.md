@@ -8,7 +8,7 @@
 + Frontend desarrollado con angular.
 
 ---
-####Para ejecutar el proyecto debes tener:
+##### Para ejecutar el proyecto debes tener:
 - java 17.
 - npm 8.
 - angular 14.
@@ -16,7 +16,7 @@
 - Algun gestor de base de datos mySQL, yo use mysql workbench.
 
 ---
-###start
+### start
 ---
 
 1. En tu gestor de base de datos deberas ejecutar el siguiente comando, yo use mySQL workbench:
