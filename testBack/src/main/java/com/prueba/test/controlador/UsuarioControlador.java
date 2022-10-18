@@ -65,4 +65,6 @@ public class UsuarioControlador { // API
 	 * public void actualizarUsuario(@PathVariable int cedula, @RequestBody Usuario usuarioAct) 
 	 * { usuarioDAO.actualizar(cedula, usuarioAct); }
 	 */
+
+	 //prueba
 }
